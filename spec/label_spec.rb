@@ -512,6 +512,7 @@ describe Label do
       expected = ('a'..'r').to_a
       expect(a.self_and_descendants_preordered.collect { |ea| ea.name }).to eq(expected)
       expect(Label.roots_and_descendants_preordered.collect { |ea| ea.name }).to eq(expected)
+      expect(Label.roots_and_descendants_preordered.count).to be_a(Integer)
       # Let's create the second root by hand so we can explicitly set the sort order
       Label.create! do |l|
         l.name = "a1"
